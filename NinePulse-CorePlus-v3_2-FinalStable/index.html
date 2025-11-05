@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NinePulse Core+ v3.2 Final Stable</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main>
+  <h1>NinePulse Core+ v3.2 Final Stable</h1>
+  <p class="sub">Ajouts: textes complets du chiffre du jour + astrologie enrichie. Rien d’autre n’a été modifié.</p>
+
+  <section class="card">
+    <form id="profileForm" class="grid2">
+      <label>Nom complet
+        <input id="fullName" type="text" placeholder="Ex. Soufiane Riani" required />
+      </label>
+      <label>Date de naissance
+        <input id="birthISO" type="date" required />
+      </label>
+      <label>Heure de naissance (optionnel)
+        <input id="birthTime" type="time" />
+      </label>
+      <label><span>Options</span>
+        <span style="display:flex;gap:8px;align-items:center;margin-top:8px">
+          <input id="keepMasters" type="checkbox" checked />
+          <span>Garder 11 / 22 / 33</span>
+        </span>
+      </label>
+      <div class="actions">
+        <button type="submit">Calculer</button>
+        <button id="btnToday" type="button">Mon chiffre du jour</button>
+        <button id="btnClear" type="button">Effacer</button>
+      </div>
+      <p class="hint">La géolocalisation est demandée automatiquement pour proposer un lieu proche aligné avec votre chiffre du jour.</p>
+    </form>
+  </section>
+
+  <section id="results" class="grid hidden">
+    <div class="card daycard wide">
+      <div class="dayheader">Chiffre du jour</div>
+      <div class="dayflex">
+        <div class="daynum" id="todayNumber">-</div>
+        <div>
+          <div><span class="label">Couleur</span> <span id="color">-</span></div>
+          <div><span class="label">Planète</span> <span id="planet">-</span></div>
+          <div><span class="label">Chance</span> <span id="lucky">-</span></div>
+        </div>
+      </div>
+      <p class="desc" id="dayDesc"></p>
+      <p class="desc" id="dayLong"></p>
+      <p class="note" id="dayNote"></p>
+      <div class="cardlite">
+        <div class="label">Conseil instantané</div>
+        <div id="instantTip">-</div>
+      </div>
+    </div>
+
+    <div class="card"><h3>Chiffre du mois</h3><p class="big" id="monthNum">-</p><p class="note" id="monthTxt"></p></div>
+    <div class="card"><h3>Année personnelle</h3><p class="big" id="yearNum">-</p><p class="note" id="yearTxt"></p></div>
+    <div class="card"><h3>Mood & 3 mots</h3><p class="note" id="moodWords">-</p></div>
+
+    <div class="card"><h3>Chemin de vie</h3><p class="big" id="lifePath">-</p><p class="note" id="lifePathTxt"></p></div>
+    <div class="card"><h3>Expression</h3><p class="big" id="expression">-</p><p class="note" id="expressionTxt"></p></div>
+    <div class="card"><h3>Intime</h3><p class="big" id="soulUrge">-</p><p class="note" id="soulUrgeTxt"></p></div>
+    <div class="card"><h3>Personnalité</h3><p class="big" id="personality">-</p><p class="note" id="personalityTxt"></p></div>
+    <div class="card"><h3>Réalisation</h3><p class="big" id="maturityNum">-</p><p class="note" id="maturityTxt"></p></div>
+
+    <div class="card"><h3>Inspiration du jour</h3><p class="note" id="inspireTitle">-</p><p class="desc" id="inspireWhy">-</p></div>
+
+    <div class="card wide"><h3>Astrologie</h3>
+      <div class="grid3">
+        <div><div class="label">Signe</div><div id="zodiac">-</div></div>
+        <div><div class="label">Ascendant</div><div id="ascendant">-</div></div>
+        <div><div class="label">Conseil du jour</div><div id="astroTip">-</div></div>
+      </div>
+    </div>
+
+    <div class="card wide"><h3>Analyse du nom</h3>
+      <div id="nameTable"></div>
+      <div id="numFreq"></div>
+      <p class="note" id="freqAdvice"></p>
+    </div>
+
+    <div class="card wide"><h3>Lieu conseillé près de vous</h3>
+      <p class="note" id="placeNote">Recherche en cours…</p>
+      <ul class="list" id="nearbyList"></ul>
+    </div>
+
+    <div class="card wide"><h3>Proposition du jour</h3>
+      <p class="desc" id="taskSuggestion"></p>
+    </div>
+  </section>
+</main>
+<script src="numerology.js"></script>
+<script src="explain.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
